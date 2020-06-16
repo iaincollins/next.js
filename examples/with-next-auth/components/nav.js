@@ -21,7 +21,7 @@ const Nav = () => {
       >
         {!session && (
           <>
-            <span className={styles.notSignedIn}>Not signed in</span>
+            <span className={styles.notSignedInText}>Not signed in</span>
             <a
               href={`/api/auth/signin`}
               onClick={(e) => {
@@ -39,8 +39,9 @@ const Nav = () => {
               style={{ backgroundImage: `url(${session.user.image})` }}
               className={styles.avatar}
             />
-            <span className={styles.signedIn}>
-              Signed in as <strong>{session.user.email}</strong>
+            <span className={styles.signedInText}>
+               <small>Signed in as</small><br/>
+              <strong>{session.user.email || session.user.name || 'Anonymous'}</strong>
             </span>
             <a
               href={`/api/auth/signout`}
